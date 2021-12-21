@@ -1,0 +1,36 @@
+@startuml
+class Main {
++ {static} void main(String[])
+}
+class Estacion {
+- String nombre
++ <<Create>> Estacion(String)
++ String getNombre()
+}
+class Reserva {
+- int codigo
+- String recorrido
+- int cantPersonas
++ <<Create>> Reserva(int,String,int)
++ int getCantPersonas()
++ String getRecorrido()
++ String toString()
+}
+class RecorridoExcepcion {
++ <<Create>> RecorridoExcepcion(String)
+}
+class Recorrido {
+- String estacionDestino
+- String estacionPartida
+- List<Reserva> reservas
+- List<Estacion> estaciones
++ <<Create>> Recorrido(String,String)
++ void agregarReserva(Reserva)
++ void agregarEstacion(Estacion)
++ double recaudacionTotal()
++ int cantVecesRecorrida(String)
+}
+
+
+Exception <|-- RecorridoExcepcion
+@enduml
